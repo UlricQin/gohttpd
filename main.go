@@ -75,7 +75,7 @@ func startHttp(port int64, authstr string) {
 		fmt.Printf("r.URL.Hostname(): %s\n", r.URL.Hostname())
 		fmt.Printf("r.Method: %s\n", r.Method)
 		fmt.Printf("r.URL.Scheme: %s\n", r.URL.Scheme)
-		fmt.Printf("SimpleHTTPD pid: %d\n", os.Getpid())
+		fmt.Printf("gohttpd pid: %d\n", os.Getpid())
 
 		fmt.Printf("\nHeaders: \n")
 		for name, values := range r.Header {
@@ -104,7 +104,7 @@ func startHttp(port int64, authstr string) {
 		fmt.Fprintf(w, "r.URL.Hostname(): %s\n", r.URL.Hostname())
 		fmt.Fprintf(w, "r.Method: %s\n", r.Method)
 		fmt.Fprintf(w, "r.URL.Scheme: %s\n", r.URL.Scheme)
-		fmt.Fprintf(w, "SimpleHTTPD pid: %d\n", os.Getpid())
+		fmt.Fprintf(w, "gohttpd pid: %d\n", os.Getpid())
 
 		fmt.Fprintf(w, "\nHeaders: \n")
 		for name, values := range r.Header {
@@ -217,7 +217,7 @@ var UPLOAD_HTML = `<!doctype html>
 
 <head>
     <meta charset="UTF-8">
-    <title>SimpleHTTPD</title>
+    <title>gohttpd</title>
     <style type="text/css">
     * {
         font-family: "Microsoft YaHei";
