@@ -200,7 +200,7 @@ func startHttp(port int64, authstr string) {
 			io.Copy(cur, file)
 		}
 
-		http.Error(w, "SUCCESS", 200)
+		w.Write([]byte(UPLOAD_RESULT_HTML))
 	})
 
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./")))
@@ -267,6 +267,27 @@ var UPLOAD_HTML = `<!doctype html>
         <input type="file" name="files" multiple="multiple" />
         <input type="submit" name="submit" value="Upload" class="btn btn-primary btn-xs">
     </form>
+</body>
+
+</html>
+`
+
+var UPLOAD_RESULT_HTML = `<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>gohttpd</title>
+    <style type="text/css">
+    * {
+        font-family: "Microsoft YaHei";
+        font-size: 12px;
+    }
+    </style>
+</head>
+
+<body>
+    <p>upload successfully | <a href="/">go home</a></p>
 </body>
 
 </html>
